@@ -195,6 +195,26 @@ plt.show()
 ```
 
 ![image](https://github.com/user-attachments/assets/68298aba-738c-4bc3-955a-830d484d97c1)
+# PERFORM Z SCORE METHOD AND DETECT OUTLIER VALUES
+``` py
+z_scores = stats.zscore(df['Data'])
+outliers_z=df[(z_scores > 3) | (z_scores < -3)]
+outliers_z
+```
+![image](https://github.com/user-attachments/assets/f03813ff-ab56-48a1-9ede-14900b13b471)
+
+# REMOVE OUTLIERS
+``` py
+threshold = 3
+df_clean = df[(z_scores < threshold) & (z_scores > -threshold)]
+```
+
+# USE BOXPLOT FUNCTION HERE TO CHECK OUTLIER IS REMOVED
+``` py
+sns.boxplot(data=df_clean, y='Data')
+```
+![image](https://github.com/user-attachments/assets/73b7ff2e-625f-45cb-8bd5-3a7a2bdd7b00)
+
 
 
 
@@ -204,4 +224,6 @@ plt.show()
 
 
 # Result
-          <<include your Result here>>
+         Thus, We have read the given data, performed data cleaning, and saved the cleaned data to a file.
+           
+         
